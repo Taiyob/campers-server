@@ -7,8 +7,8 @@ const createProductValidationSchema = z.object({
     stockQuantity: z.number(),
     description: z.string(),
     categoryId: z.string(),
-    isDeleted: z.boolean(),
-    status: z.boolean(),
+    isDeleted: z.boolean().default(false),
+    status: z.boolean().default(true),
   }),
 });
 
