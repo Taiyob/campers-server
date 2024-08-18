@@ -15,6 +15,14 @@ const productSchema = new Schema<TProduct>(
       ref: 'Category',
       required: [true, 'Category must be needed'],
     },
+    images: {
+      type: [String], // Array of strings to hold image URLs
+      validate: {
+        validator: (v: string[]) => Array.isArray(v) && v.length > 0,
+        message: 'Product must have at least one image',
+      },
+    },
+    isFeatured: { type: Boolean, default: false },
     isDeleted: { type: Boolean, default: false },
     status: { type: Boolean, default: true },
   },
