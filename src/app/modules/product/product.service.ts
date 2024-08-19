@@ -7,4 +7,24 @@ const createProductIntoDB = async (payLoad: TProduct) => {
   return result;
 };
 
-export const ProductServices = { createProductIntoDB };
+const getAllProductsFromDB = async () => {
+  const result = await Product.find(); // { isFeatured: true, isDeleted: false, status: true }
+
+  return result;
+};
+
+const getAllFeaturedProductsFromDB = async () => {
+  const result = await Product.find({
+    isFeatured: true,
+    isDeleted: false,
+    status: true,
+  });
+
+  return result;
+};
+
+export const ProductServices = {
+  createProductIntoDB,
+  getAllProductsFromDB,
+  getAllFeaturedProductsFromDB,
+};
