@@ -7,4 +7,10 @@ const createCategoryIntoDB = async (payLoad: TCategory) => {
   return result;
 };
 
-export const CategoryServices = { createCategoryIntoDB };
+const getAllCategoryFromDB = async () => {
+  const result = await Category.find();
+
+  return result;
+};
+
+export const CategoryServices = { createCategoryIntoDB, getAllCategoryFromDB };
