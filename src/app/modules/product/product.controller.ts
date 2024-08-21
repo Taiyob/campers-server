@@ -36,8 +36,21 @@ const getAllFeaturedProduct = catchAsync(async (req, res) => {
   });
 });
 
+const getSingledProduct = catchAsync(async (req, res) => {
+  const id = req.params.id;
+  const result = await ProductServices.getSingleProductFromDB(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Single product retrived successfully',
+    data: result,
+  });
+});
+
 export const ProductControllers = {
   createProduct,
   getAllProduct,
   getAllFeaturedProduct,
+  getSingledProduct,
 };
