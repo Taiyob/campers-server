@@ -13,8 +13,8 @@ router.post(
 
 router.get('/', ProductControllers.getAllProduct);
 
-router.get('/:id', ProductControllers.getSingledProduct);
-
 router.get('/featured-product', ProductControllers.getAllFeaturedProduct);
+
+router.get('/:id', ProductControllers.getSingledProduct);
 
 export const ProductRoutes = router;
